@@ -13,6 +13,5 @@ TODO Tristan
 -E to interact
 -Menu
 -GUI
--Fade in/out Levels
 -Credits
 -Funny Ending Level
