@@ -1,0 +1,18 @@
+TODO Tristan
+
+-Pick Up objects (Only Balls)
+-Push Cubes
+-Collect Orbs
+-Breakable Glass (Ill provide the script)
+-Crouching
+-Doors Opening
+-Sockets to place Balls in
+-Left click shoots the ball
+-Right drops the ball
+-Audio Trigger Zones
+-E to interact
+-Menu
+-GUI
+-Fade in/out Levels
+-Credits
+-Funny Ending Level
