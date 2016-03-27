@@ -4,9 +4,10 @@ TODO Tristan
 -Collect Orbs
 -Breakable Glass (Ill provide the script)
 -Doors Opening
--Sockets to place Balls in
+-Sockets to place Balls in that trigger doors/platforms
 -Audio Trigger Zones
 -Menu
 -GUI
 -Credits
 -Funny Ending Level
+-Scripted levels (IE Multiple DIalogue System)
