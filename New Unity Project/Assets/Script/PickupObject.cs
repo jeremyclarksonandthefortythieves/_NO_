@@ -2,10 +2,9 @@
 using System.Collections;
 
 public class PickupObject : MonoBehaviour {
-    [Range(1, 10)]
-    public float shootingSpeed;
-    [Range(1, 10)]
-    public float distanceFromPlayer;
+
+    [SerializeField][Range(1, 50)] int shootingSpeed;
+    [SerializeField][Range(1, 10)] float distanceFromPlayer;
 
     private Transform player;
     private Transform holdingObjectTransform;
