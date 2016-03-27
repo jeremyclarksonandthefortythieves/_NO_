@@ -246,9 +246,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             if (body == null || body.isKinematic)
             {
+                if (hit.collider.tag == "Pickup")
+                    Debug.Log(hit.collider.tag);
                 return;
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
+
     }
 }
