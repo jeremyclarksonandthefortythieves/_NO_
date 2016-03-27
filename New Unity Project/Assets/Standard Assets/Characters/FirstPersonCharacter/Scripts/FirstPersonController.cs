@@ -15,6 +15,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private float m_RunSpeed;
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
         [SerializeField] private float m_JumpSpeed;
+        [SerializeField] [Range(0f, 1f)] private float m_CrouchingDepth;
         [SerializeField] private float m_StickToGroundForce;
         [SerializeField] private float m_GravityMultiplier;
         [SerializeField] private MouseLook m_MouseLook;
@@ -40,9 +41,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_StepCycle;
         private float m_NextStep;
         private bool m_Jumping;
+        private bool isCrouching;
         private AudioSource m_AudioSource;
 
-        // Use this for initialization
         private void Start()
         {
             m_CharacterController = GetComponent<CharacterController>();
@@ -55,18 +56,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+            isCrouching = false;
         }
 
-        // Update is called once per frame
         private void Update()
         {
             RotateView();
-            // the jump state needs to read here to make sure it is not missed
-            if (!m_Jump)
-            {
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
-            }
-
+            UpdateJumpState();
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
             {
                 StartCoroutine(m_JumpBob.DoBobCycle());
@@ -81,7 +77,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
-
+        private void UpdateJumpState()
+        {
+            // the jump state needs to read here to make sure it is not missed
+            if (!m_Jump)
+            {
+                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+            }
+        }
         private void PlayLandingSound()
         {
             m_AudioSource.clip = m_LandSound;
@@ -190,6 +193,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 newCameraPosition = m_Camera.transform.localPosition;
                 newCameraPosition.y = m_OriginalCameraPosition.y - m_JumpBob.Offset();
             }
+            if (isCrouching) newCameraPosition -= Vector3.up * m_CrouchingDepth;
             m_Camera.transform.localPosition = newCameraPosition;
         }
 
@@ -205,6 +209,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // On standalone builds, walk/run speed is modified by a key press.
             // keep track of whether or not the character is walking or running
             m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
+            isCrouching = Input.GetKey(KeyCode.LeftControl);
 #endif
             // set the desired speed to be walking or running
             speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
