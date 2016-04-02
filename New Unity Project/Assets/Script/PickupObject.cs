@@ -17,7 +17,7 @@ public class PickupObject : MonoBehaviour {
     void Start()
     {
         player = GetComponent<Transform>();
-        uiMessage = GameObject.Find("HUD").GetComponent<UIController>();
+        if (GameObject.Find("HUD"))uiMessage = GameObject.Find("HUD").GetComponent<UIController>();
     }
     void Update() {
         if (holdingObject)
@@ -61,12 +61,14 @@ public class PickupObject : MonoBehaviour {
                 {
                     holdingObject = true;
                     holdingObjectTransform = objectHit;
-                    rb = objectHit.GetComponent<Rigidbody>();
+                    if (objectHit.GetComponent<Rigidbody>()) rb = objectHit.GetComponent<Rigidbody>();
+                    else print("You have to add a rigidbody component to that you silly :')");
                 }
             }
             else
                 uiMessage.DisplayIcon(false);
         }
+        else uiMessage.DisplayIcon(false);
     }
     void Shoot(Transform obj)
     {

@@ -257,7 +257,7 @@ public class FirstPersonController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Pick Up"))
+        if (other.CompareTag("Pickup"))
         {
             if (other.GetComponent<Keys>())
             {
