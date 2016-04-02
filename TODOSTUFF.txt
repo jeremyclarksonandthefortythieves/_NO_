@@ -1,6 +1,5 @@
 TODO Tristan
 
--Push Cubes
 -Collect Orbs
 -Breakable Glass (Ill provide the script)
 -Doors Opening
