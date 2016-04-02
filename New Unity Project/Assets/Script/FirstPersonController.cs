@@ -54,6 +54,7 @@ public class FirstPersonController : MonoBehaviour
     private Vector2 m_Input;
     private Vector3 m_MoveDir = Vector3.zero;
     private CharacterController m_CharacterController;
+    private UIController uiController;
     private CollisionFlags m_CollisionFlags;
     private bool m_PreviouslyGrounded;
     private Vector3 m_OriginalCameraPosition;
@@ -77,8 +78,8 @@ public class FirstPersonController : MonoBehaviour
         m_AudioSource = GetComponent<AudioSource>();
         m_MouseLook.Init(transform, m_Camera.transform);
         isCrouching = false;
+        if (GameObject.FindObjectOfType<Canvas>()) uiController = GameObject.FindObjectOfType<Canvas>().GetComponent<UIController>();
     }
-
     private void Update()
     {
         RotateView();
@@ -111,7 +112,6 @@ public class FirstPersonController : MonoBehaviour
         m_AudioSource.Play();
         m_NextStep = m_StepCycle + .5f;
     }
-
     private void FixedUpdate()
     {
         float speed;
@@ -152,13 +152,11 @@ public class FirstPersonController : MonoBehaviour
 
         m_MouseLook.UpdateCursorLock();
     }
-
     private void PlayJumpSound()
     {
         m_AudioSource.clip = m_JumpSound;
         m_AudioSource.Play();
     }
-
     private void ProgressStepCycle(float speed)
     {
         if (m_CharacterController.velocity.sqrMagnitude > 0 && (m_Input.x != 0 || m_Input.y != 0))
@@ -176,7 +174,6 @@ public class FirstPersonController : MonoBehaviour
 
         PlayFootStepAudio();
     }
-
     private void PlayFootStepAudio()
     {
         if (!m_CharacterController.isGrounded)
@@ -192,7 +189,6 @@ public class FirstPersonController : MonoBehaviour
         m_FootstepSounds[n] = m_FootstepSounds[0];
         m_FootstepSounds[0] = m_AudioSource.clip;
     }
-
     private void UpdateCameraPosition(float speed)
     {
         Vector3 newCameraPosition;
@@ -216,7 +212,6 @@ public class FirstPersonController : MonoBehaviour
         if (isCrouching) newCameraPosition -= Vector3.up * m_CrouchingDepth;
         m_Camera.transform.localPosition = newCameraPosition;
     }
-
     private void GetInput(out float speed)
     {
         // Read input
@@ -249,12 +244,19 @@ public class FirstPersonController : MonoBehaviour
             StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
         }
     }
-
     private void RotateView()
     {
         m_MouseLook.LookRotation(transform, m_Camera.transform);
     }
+    private void OnCollisionEnter(Collision collider)
+    {
+        print("Colliding with: " + collider.transform.name);
+        
+    }
+    private void OnCollisionExit(Collision collider)
+    {
 
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Pickup"))
@@ -270,9 +272,32 @@ public class FirstPersonController : MonoBehaviour
 
             }
         }
+        else if (other.GetComponent<JumpPad>())
+        {
+            print("Yo boost pad! :D");
+            m_JumpSpeed *= other.GetComponent<JumpPad>().boostStrength;
+        }
+        else if (other.GetComponent<SpeedPad>())
+        {
+            print("Yo speed pad! :D");
+            m_WalkSpeed *= other.GetComponent<SpeedPad>().boostStrength;
+        }
         if (other.GetComponent<Door>() && (keyList.Contains(other.GetComponent<Door>().RequiredItem)))
         {
             Destroy(other.gameObject);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<JumpPad>())
+        {
+            print("Bye boost pad! D:");
+            m_JumpSpeed /= other.GetComponent<JumpPad>().boostStrength;
+        }
+        else if (other.GetComponent<SpeedPad>())
+        {
+            print("Bye speed pad! D:");
+            m_WalkSpeed /= other.GetComponent<SpeedPad>().boostStrength;
         }
     }
 }

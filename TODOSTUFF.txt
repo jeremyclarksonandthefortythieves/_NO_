@@ -1,9 +1,13 @@
 TODO Tristan
 
-1.Socket trigger
--Audio Trigger Zones
--Menu
--GUI
--Credits
--Funny Ending Level
-2. Scripted levels (IE Multiple DIalogue System)
+Must have:
+-Socket trigger ball types
+-Bounce pad
+-Speed pad
+-Bridge
+-Dialogue
+-Implement audio
+
+Could have:
+-Save/load level progression
+-Security camera

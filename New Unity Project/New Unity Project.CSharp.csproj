@@ -74,10 +74,13 @@
     <Compile Include="Assets\Script\FirstPersonController.cs" />
     <Compile Include="Assets\Script\Floating.cs" />
     <Compile Include="Assets\Script\HelpClass.cs" />
+    <Compile Include="Assets\Script\JumpPad.cs" />
     <Compile Include="Assets\Script\Keys.cs" />
     <Compile Include="Assets\Script\PickupObject.cs" />
     <Compile Include="Assets\Script\Socket.cs" />
+    <Compile Include="Assets\Script\SpeedPad.cs" />
     <Compile Include="Assets\Script\UIController.cs" />
+    <Compile Include="Assets\TextDisplay.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Chairs and sofas pack\Readme.txt" />
