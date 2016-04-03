@@ -150,7 +150,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9769954c930de7e4a99f7d8c0bcea881, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c974ce0578f12b7428a3ff0ad5c28c8c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -186,6 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconSpritePrefab: {fileID: 185182, guid: 0dd578607c0845745b2eb939fdebbae3, type: 2}
+  multipleChoicePanels: []
 --- !u!114 &11453298
 MonoBehaviour:
   m_ObjectHideFlags: 1
