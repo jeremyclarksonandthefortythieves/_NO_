@@ -322,6 +322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 696149a2202007b479ca35c622526a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iconSpritePrefab: {fileID: 0}
+  multipleChoicePanels: []
 --- !u!4 &205228340 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 43a23afd3a090824586ba03865d2d951, type: 3}
