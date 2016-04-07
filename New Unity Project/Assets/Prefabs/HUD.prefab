@@ -47,6 +47,8 @@ GameObject:
   - 114: {fileID: 11453298}
   - 114: {fileID: 11429134}
   - 114: {fileID: 11445512}
+  - 222: {fileID: 22237844}
+  - 114: {fileID: 11449550}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -186,7 +188,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconSpritePrefab: {fileID: 185182, guid: 0dd578607c0845745b2eb939fdebbae3, type: 2}
-  multipleChoicePanels: []
+  multipleChoicePanels:
+  - {fileID: 0}
+--- !u!114 &11449550
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f5f1f50801186489a8a070bc076a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11453298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -228,6 +242,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139248}
+--- !u!222 &22237844
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155894}
 --- !u!222 &22277624
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -255,7 +275,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

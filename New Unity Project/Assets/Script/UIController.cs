@@ -15,8 +15,7 @@ public class UIController : MonoBehaviour {
         iconSprite = Instantiate(iconSpritePrefab);
         iconSprite.transform.SetParent(transform);
         iconSprite.transform.position = new Vector3(Screen.width/2,Screen.height/2+50);
-        textPanel = GetComponentInChildren<TextDisplay>().gameObject;
-        displayedText = textPanel.GetComponentInChildren<Text>();
+        displayedText = GetComponentInChildren<Text>();
         if (displayedText == null) Debug.LogError("Can't find GUIText");
     }
     public void DisplayMultipleChoiceText(string text,int index)
