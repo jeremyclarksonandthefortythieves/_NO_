@@ -8,6 +8,11 @@ EndProject
 Project("{51410DB2-8570-737B-A495-110236DE2A7E}") = "New Unity Project", "Assembly-CSharp-Editor-firstpass.csproj", "{A0590241-EC89-9436-F11D-51760213F2B6}"
 EndProject
 Project("{51410DB2-8570-737B-A495-110236DE2A7E}") = "New Unity Project", "Assembly-CSharp-Editor.csproj", "{5A0769DA-25DA-A68D-BA58-6ED404CB536B}"
+<<<<<<< HEAD
+=======
+EndProject
+Project("{51410DB2-8570-737B-A495-110236DE2A7E}") = "New Unity Project", "Assembly-UnityScript.unityproj", "{1753851C-AE59-909A-15AB-E3FFE34BC5A0}"
+>>>>>>> 578ea03e8618f0681a6dec15252f2b06a6737ff7
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +36,13 @@ Global
 		{5A0769DA-25DA-A68D-BA58-6ED404CB536B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A0769DA-25DA-A68D-BA58-6ED404CB536B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A0769DA-25DA-A68D-BA58-6ED404CB536B}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
+=======
+		{1753851C-AE59-909A-15AB-E3FFE34BC5A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1753851C-AE59-909A-15AB-E3FFE34BC5A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1753851C-AE59-909A-15AB-E3FFE34BC5A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1753851C-AE59-909A-15AB-E3FFE34BC5A0}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> 578ea03e8618f0681a6dec15252f2b06a6737ff7
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
